@@ -62,14 +62,42 @@ int
 main ()
 {
   head = NULL;
-  int n, i, x;
-  printf ("How many numbers: ");
-  scanf ("%d", &n);
-  for (i = 0; i < n; i++)
-    {
-      printf ("Enter number %d: ", i);
-      scanf ("%d", &x);
-      insert (x);
-      print ();
-    }
+  int n,ib,ie,im_data,im_pos;
+  printf("1.INSERT AT BEGINNING\n");
+  printf("2.INSERT AT END\n");
+  printf("3.INSERT AT MIDDLE\n");
+  printf("Enter the operation: ");
+  scanf("%d",&n);
+  switch(n){
+    case 1: printf("Enter the numbers to insert: ");
+            scanf("%d",&n);
+            for(int i=1;i<=n;i++){
+              printf("Enter number %d: ",i);
+              scanf("%d",&ib);
+              insertatbeginning(ib);
+            }
+            print();
+            break;
+    case 2: printf("Enter the numbers to insert: ");
+            scanf("%d",&n);
+            for(int i=1;i<=n;i++){
+              printf("Enter number %d: ",i);
+              scanf("%d",&ie);
+              insertatend(ie);
+            }
+            print();
+            break;
+    case 3: printf("Enter the numbers to insert: ");
+            scanf("%d",&n);
+            for(int i=1;i<=n;i++){
+              printf("Enter number %d: ",i);
+              scanf("%d",&im_data);
+              printf("Enter number %d position: ",i);
+              scanf("%d",&im_pos);
+              insertatmiddle(im_data,im_pos);
+            }
+            print();
+            break;
+    default:printf("Invalid Operation");
+  }
 }
