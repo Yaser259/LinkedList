@@ -35,6 +35,7 @@ void insertatmiddle (int data,int n){
   temp1->data = data;
   temp1->next = NULL;
   if(n==1){
+    temp1->next=head;
     head=temp1;
     return;
   }
