@@ -1,2 +1,4 @@
-# LinkedListInsertion
+# LinkedList
+Insertion
+Deletion
 
