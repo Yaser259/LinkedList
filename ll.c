@@ -7,14 +7,44 @@ struct node
 };
 struct node *head;
 void
-insert (int x)
+insertatbeginning (int x)
 {
   struct node *temp = (struct node *) malloc (sizeof (struct node));
   temp->data = x;
   temp->next = head;
   head = temp;
 }
-
+void insertatend (int data)
+{
+  struct node *temp1 = (struct node *) malloc (sizeof (struct node *));
+  temp1->data = data;
+  temp1->next = NULL;
+  if(head==NULL){
+      head=temp1;
+      return;
+  }
+  struct node* temp2 = head;
+  while(temp2->next!=NULL){
+      temp2=temp2->next;
+  }
+  temp2->next=temp1;
+  return;
+}
+void insertatmiddle (int data,int n){
+  struct node *temp1 = (struct node *) malloc (sizeof (struct node *));
+  temp1->data = data;
+  temp1->next = NULL;
+  if(n==1){
+    head=temp1;
+    return;
+  }
+  struct node* temp2 = head;
+  for(int i=0;i<n-2;i++){
+    temp2=temp2->next;
+  }
+  temp1->next=temp2->next;
+  temp2->next=temp1;
+}
 void
 print ()
 {
