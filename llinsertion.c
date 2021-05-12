@@ -46,6 +46,22 @@ void insertatmiddle (int data,int n){
   temp1->next=temp2->next;
   temp2->next=temp1;
 }
+void deleteatanypos(int n){
+    struct node* temp = head;
+    if(n==1){
+        head = temp->next;
+        free(temp);
+        return;
+    }
+    int i;
+    for(i=0;i<n-2;i++){
+        temp=temp->next;
+    }
+    struct node* temp2=temp->next;
+    temp->next=temp2->next;
+    free(temp2);
+}
+
 void
 print ()
 {
@@ -63,10 +79,12 @@ int
 main ()
 {
   head = NULL;
-  int n,ib,ie,im_data,im_pos;
+  int n,ch,ib,ie,im_data,im_pos;
+  while(1){
   printf("1.INSERT AT BEGINNING\n");
   printf("2.INSERT AT END\n");
   printf("3.INSERT AT MIDDLE\n");
+  printf("4.DELETE AT ANY POSITION");
   printf("Enter the operation: ");
   scanf("%d",&n);
   switch(n){
@@ -99,6 +117,15 @@ main ()
             }
             print();
             break;
+    case 4: printf("Enter the position to delete: ");
+            scanf("%d",&dp);
+            deleteatanypos(dp);
+            print();
     default:printf("Invalid Operation");
+    }
+    printf("Do you want to continue (Y/N): ");
+    scanf("%c",&ch);
+    if(ch=='Y') continue;
+    else exit(0);
   }
 }
