@@ -6,6 +6,7 @@ struct node
   struct node *next;
 };
 struct node *head;
+//INSERT THE NUMBER AT THE BEGINNING
 void
 insertatbeginning (int x)
 {
@@ -14,6 +15,7 @@ insertatbeginning (int x)
   temp->next = head;
   head = temp;
 }
+//INSERT THE NUMBER AT END USING ITERATION
 void insertatend (int data)
 {
   struct node *temp1 = (struct node *) malloc (sizeof (struct node *));
@@ -30,6 +32,17 @@ void insertatend (int data)
   temp2->next=temp1;
   return;
 }
+//INSERT THE NUMBER AT END USING RECURSION
+void reverse(struct node* p){
+    if(p==NULL){
+        printf("\n");
+        return;
+    }
+    printf("%d ",p->data);
+    reverse(p->next);
+}
+
+//INSERT THE NUMBER IN MIDDLE
 void insertatmiddle (int data,int n){
   struct node *temp1 = (struct node *) malloc (sizeof (struct node *));
   temp1->data = data;
@@ -45,21 +58,6 @@ void insertatmiddle (int data,int n){
   }
   temp1->next=temp2->next;
   temp2->next=temp1;
-}
-void deleteatanypos(int n){
-    struct node* temp = head;
-    if(n==1){
-        head = temp->next;
-        free(temp);
-        return;
-    }
-    int i;
-    for(i=0;i<n-2;i++){
-        temp=temp->next;
-    }
-    struct node* temp2=temp->next;
-    temp->next=temp2->next;
-    free(temp2);
 }
 
 void
