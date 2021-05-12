@@ -1,4 +1,4 @@
 # LinkedList
-Insertion and 
-Deletion
+Insertion, 
+Deletion and Reversing
 
