@@ -21,3 +21,16 @@ void reverse(struct node* p){
     printf("%d ",p->data);
 }
 
+//OR
+
+void reverse(struct node* p){
+    if(p->next==NULL){
+        head=p;
+        return;
+    }
+    reverse(p->next);
+    p->next->next=p;
+    p->next=NULL;
+}
+
+
