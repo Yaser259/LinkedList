@@ -15,3 +15,11 @@ void deleteatanypos(int n){
     free(temp2);
 }
 
+//DELETE THE NUMBER AT THE BEGINNING
+void deleteatbeginning(){
+    struct node* temp = (struct node*)malloc(sizeof(struct node));
+    if(top==NULL) return;
+    temp = top;
+    top = top->next;
+    free(temp);
+}
