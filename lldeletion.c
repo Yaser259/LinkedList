@@ -17,7 +17,7 @@ void deleteatanypos(int n){
 
 //DELETE THE NUMBER AT THE BEGINNING
 void deleteatbeginning(){
-    struct node* temp = (struct node*)malloc(sizeof(struct node));
+    struct node* temp;
     if(top==NULL) return;
     temp = top;
     top = top->next;
